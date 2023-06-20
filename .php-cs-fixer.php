@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
@@ -11,19 +13,19 @@ $rules = [
             '=>' => null,
             '|' => 'no_space',
             '&' => 'no_space',
-        ]
+        ],
     ],
     'blank_line_after_namespace' => true,
     'blank_line_after_opening_tag' => true,
     'no_superfluous_phpdoc_tags' => true,
     'blank_line_before_statement' => [
-        'statements' => ['return']
+        'statements' => ['return'],
     ],
     'braces' => true,
     'cast_spaces' => true,
     'class_definition' => true,
     'concat_space' => [
-        'spacing' => 'one'
+        'spacing' => 'one',
     ],
     'declare_equal_normalize' => true,
     'elseif' => true,
@@ -54,7 +56,7 @@ $rules = [
             'throw',
             'use',
             'use_trait',
-        ]
+        ],
     ],
     'no_blank_lines_after_class_opening' => true,
     'no_blank_lines_after_phpdoc' => true,
@@ -64,11 +66,11 @@ $rules = [
     'no_leading_import_slash' => true,
     'no_leading_namespace_whitespace' => true,
     'no_mixed_echo_print' => [
-        'use' => 'echo'
+        'use' => 'echo',
     ],
     'no_multiline_whitespace_around_double_arrow' => true,
     'multiline_whitespace_before_semicolons' => [
-        'strategy' => 'no_multi_line'
+        'strategy' => 'no_multi_line',
     ],
     'no_short_bool_cast' => true,
     'no_singleline_whitespace_before_semicolons' => true,
@@ -111,7 +113,7 @@ $rules = [
     'single_line_after_imports' => true,
     'no_unused_imports' => true,
     'single_line_comment_style' => [
-        'comment_types' => ['hash']
+        'comment_types' => ['hash'],
     ],
     'single_quote' => true,
     'space_after_semicolon' => true,
