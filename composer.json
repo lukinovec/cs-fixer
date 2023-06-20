@@ -1,0 +1,15 @@
+{
+    "name": "lukas/cs-fixer",
+    "autoload": {
+        "psr-4": {
+            "Lukas\\CsFixer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "lukinovec",
+            "email": "lukinovec@gmail.com"
+        }
+    ],
+    "require": {}
+}
