@@ -1,0 +1,17 @@
+{
+    "name": "lukas/cs-fixer",
+    "autoload": {
+        "psr-4": {
+            "Lukas\\CsFixer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "lukinovec",
+            "email": "lukinovec@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.18"
+    }
+}
