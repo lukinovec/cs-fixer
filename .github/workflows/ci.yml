@@ -7,9 +7,10 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions: write-all
+
 jobs:
   php-cs-fixer:
-    permissions: write-all
     name: Code style (php-cs-fixer)
     runs-on: ubuntu-latest
     steps:
