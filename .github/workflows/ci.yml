@@ -7,9 +7,6 @@ on:
   pull_request:
     branches: [ main ]
 
-permissions:
-  contents: write
-
 jobs:
   php-cs-fixer:
     name: Code style (php-cs-fixer)
@@ -19,6 +16,7 @@ jobs:
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ github.event.pull_request.head.sha }}
       - name: Install php-cs-fixer
         run: composer global require friendsofphp/php-cs-fixer
       - name: Run php-cs-fixer
