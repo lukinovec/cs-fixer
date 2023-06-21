@@ -1,8 +1,5 @@
 name: CI
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 on:
   pull_request:
     branches: [ main ]
@@ -16,6 +13,7 @@ jobs:
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ secrets.MY_TOKEN }}
       - name: Install php-cs-fixer
         run: composer global require friendsofphp/php-cs-fixer
       - name: Run php-cs-fixer
@@ -26,3 +24,4 @@ jobs:
           author_name: "PHP CS Fixer"
           author_email: "phpcsfixer@example.com"
           message: Fix code style (php-cs-fixer)
+          token: ${{ secrets.MY_TOKEN }}
