@@ -4,32 +4,20 @@ on:
   pull_request:
     branches: [ main ]
 
-env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   php-cs-fixer:
-    name: Code style (php-cs-fixer)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.ref }}
-      - name: Install php-cs-fixer
-        run: composer global require friendsofphp/php-cs-fixer
-      - name: Run php-cs-fixer
-        run: $HOME/.composer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php
-      - name: Commit changes from php-cs-fixer
-        run: |
-          git config --global user.email "lukinovec@gmail.com"
-          git config --global user.name "lukinovec"
-          git add .
-          git commit -m "Fix code style (php-cs-fixer)"
-          gh auth login --with-token ${{ secrets.GITHUB_TOKEN }}
-          gh repo view --json name --jq '.name' > repo_name.txt
-          gh repo view --json owner.login --jq '.owner.login' > repo_owner.txt
-          gh repo fork --clone --remote
-          gh pr checkout ${{ github.event.number }}
-          gh pr comment ${{ github.event.number }} --body "Code style fixed."
-          gh pr create --base main --head $(cat repo_owner.txt):main --title "Fix code style (php-cs-fixer)" --body "This PR fixes code style issues using php-cs-fixer."
+      name: Code style (php-cs-fixer)
+      runs-on: ubuntu-latest
+
+      steps:
+        - uses: actions/checkout@v2
+        - name: Install php-cs-fixer
+          run: composer global require friendsofphp/php-cs-fixer
+        - name: Run php-cs-fixer
+          run: $HOME/.composer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php
+        - name: Commit changes from php-cs-fixer
+          uses: EndBug/add-and-commit@v5
+          with:
+            author_name: Lukinovec
+            author_email: lukinovec@gmail.com
+            message: Fix code style (php-cs-fixer)
