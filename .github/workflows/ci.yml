@@ -1,8 +1,5 @@
 name: CI
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 on:
   pull_request:
     branches: [ main ]
@@ -26,3 +23,5 @@ jobs:
           author_name: Lukáš Vrba
           author_email: lukinovec@gmail.com
           message: Fix code style (php-cs-fixer)
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
