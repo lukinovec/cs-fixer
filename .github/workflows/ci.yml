@@ -23,6 +23,6 @@ jobs:
       - name: Commit changes from php-cs-fixer
         uses: EndBug/add-and-commit@v5
         with:
-          author_name: Samuel Štancl
-          author_email: samuel.stancl@gmail.com
+          author_name: Lukáš Vrba
+          author_email: lukinovec@gmail.com
           message: Fix code style (php-cs-fixer)
